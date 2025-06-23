@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '11.0'
 
   s.source       = { 
-    :http => "https://github.com/moengage/MoEngage-iOS-InApps/releases/download/#{s.version}/MoEngageInApps.xcframework.zip", 
+    :http => "https://github.com/moengage/MoEngage-iOS-InApps/releases/download/6.00.3/MoEngageInApps.xcframework.zip", 
     :sha256 => 'e7819a44d299e965982fb82f843df63694b6d9eddb6132d735fe577ce5c81365'
   }
 
