@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.source       = { 
     :http => "https://github.com/moengage/MoEngage-iOS-InApps/releases/download/6.00.3/MoEngageInApps.xcframework.zip", 
-    :sha256 => 'e7819a44d299e965982fb82f843df63694b6d9eddb6132d735fe577ce5c81365'
+    # :sha256 => 'e7819a44d299e965982fb82f843df63694b6d9eddb6132d735fe577ce5c81365'
   }
 
   s.vendored_frameworks = 'MoEngageInApps.xcframework'
