@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => 'Commercial', :file => 'LICENSE' }
   s.author       = { 'MobileDevs' => 'mobiledevs@moengage.com' }
   s.social_media_url   = 'https://twitter.com/moengage'
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '13.0'
   s.tvos.deployment_target = '11.0'
 
   s.source       = { 
