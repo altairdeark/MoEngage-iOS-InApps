@@ -13,37 +13,12 @@ Pod::Spec.new do |s|
   s.author       = { 'MobileDevs' => 'mobiledevs@moengage.com' }
   s.social_media_url   = 'https://twitter.com/moengage'
   s.ios.deployment_target = '13.0'
-#  s.tvos.deployment_target = '11.0'
-  
-#  s.source           = { :git => 'https://github.com/Sample.git', :tag => s.version.to_s }
-   s.source = { 
+
+  s.source = { 
      :http => "https://github.com/moengage/MoEngage-iOS-InApps/releases/download/6.00.3/MoEngageInApps.xcframework.zip", 
      :sha256 => 'e7819a44d299e965982fb82f843df63694b6d9eddb6132d735fe577ce5c81365'
-   }
+  }
 
-   s.prepare_command = <<-CMD
-     set -e
-     # Find the downloaded zip file (CocoaPods renames it)
-     ZIP_FILE=$(find . -name 'MoEngageInApps*.zip' | head -1)
-     
-     if [ -z "$ZIP_FILE" ]; then
-       echo "Error: MoEngage framework zip not found"
-       exit 1
-     fi
-     
-     # Unzip and fix structure
-     unzip -o "$ZIP_FILE"
-     
-     if [ -d "MoEngageInApps.xcframework/MoEngageInApps.xcframework" ]; then
-       mv MoEngageInApps.xcframework/MoEngageInApps.xcframework .
-       rm -rf MoEngageInApps.xcframework
-       mv MoEngageInApps.xcframework temp
-       mv temp/* .
-       rmdir temp
-     fi
-   CMD
-  
-#  s.preserve_paths = 'MoEngageInApps.xcframework/**/*'
   s.vendored_frameworks = 'MoEngageInApps.xcframework'
   s.requires_arc = true
   s.frameworks = 'Foundation', 'UIKit', 'CoreGraphics'
