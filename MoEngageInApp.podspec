@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'MoEngageInApp'
-  s.version      = '6.00.3'
+  s.version      = '6.00.3-dirty'
   s.summary      = 'MoEngage InApp Campaigns for iOS'
   s.description  = <<-DESC
                    InApp Messaging are custom views which you can send to a segment of users to show custom messages or give new offers or take to some specific pages. They can be created from your MoEngage dashboard and MOInApp framework enables you to show those InApp campaigns in your iOS Apps.
@@ -23,6 +23,6 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'MoEngageInApps.xcframework'
   s.requires_arc = true
   s.frameworks = 'Foundation', 'UIKit', 'CoreGraphics'
-  s.dependency 'MoEngage-iOS-SDK', '>= 9.17.1', '< 9.18.0'
+  s.dependency 'MoEngage-iOS-SDK', '>= 9.17.1'#, '< 10.01.0'
   s.dependency 'MoEngageTriggerEvaluator', '>= 1.01.0', '< 1.02.0'
 end
