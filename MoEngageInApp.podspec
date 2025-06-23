@@ -21,16 +21,27 @@ Pod::Spec.new do |s|
      :sha256 => 'e7819a44d299e965982fb82f843df63694b6d9eddb6132d735fe577ce5c81365'
    }
 
-  s.prepare_command = <<-CMD
-    unzip -o MoEngageInApps.xcframework.zip
-    if [ -d "MoEngageInApps.xcframework/MoEngageInApps.xcframework" ]; then
-      mv MoEngageInApps.xcframework/MoEngageInApps.xcframework .
-      rm -rf MoEngageInApps.xcframework
-      mv MoEngageInApps.xcframework temp
-      mv temp/* .
-      rmdir temp
-    fi
-  CMD
+   s.prepare_command = <<-CMD
+     set -e
+     # Find the downloaded zip file (CocoaPods renames it)
+     ZIP_FILE=$(find . -name 'MoEngageInApps*.zip' | head -1)
+     
+     if [ -z "$ZIP_FILE" ]; then
+       echo "Error: MoEngage framework zip not found"
+       exit 1
+     fi
+     
+     # Unzip and fix structure
+     unzip -o "$ZIP_FILE"
+     
+     if [ -d "MoEngageInApps.xcframework/MoEngageInApps.xcframework" ]; then
+       mv MoEngageInApps.xcframework/MoEngageInApps.xcframework .
+       rm -rf MoEngageInApps.xcframework
+       mv MoEngageInApps.xcframework temp
+       mv temp/* .
+       rmdir temp
+     fi
+   CMD
   
 #  s.preserve_paths = 'MoEngageInApps.xcframework/**/*'
   s.vendored_frameworks = 'MoEngageInApps.xcframework'
